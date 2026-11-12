@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HybridGuardAI</title>
+</head>
+<body>
+    <h1>HybridGuardAI Dashboard</h1>
+    <div id="status">Connecting to Firebase...</div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyANPyu_nIYceNIdx_NcbMmwFjGCWR3zsQk",
+          authDomain: "hybridguardai.firebaseapp.com",
+          projectId: "hybridguardai",
+          storageBucket: "hybridguardai.appspot.com",
+          messagingSenderId: "973062373600",
+          appId: "1:973062373600:web:24c7ff5002f42a54361085",
+          measurementId: "G-54Z86NZYN4"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        document.getElementById('status').innerText = "Connected to Firebase Successfully!";
+    </script>
+</body>
+</html>
