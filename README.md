@@ -19,5 +19,5 @@ To ensure zero-trust data privacy and sub-second execution, HybridGuard AI utili
 ## Getting Started
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/rcortez056-spec/hybridguard-ai.git]
+   git clone https://github.com/rcortez056-spec/hybridguard-ai.git
   npx -y firebase-tools@latest init ailogic 
