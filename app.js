@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAI, getGenerativeModel, GoogleAIBackend, InferenceMode } from "firebase/ai";
 
 const firebaseConfig = {
-      apiKey: "AIzaSyAVG6YBzldL_99cenKVa0yRbdPQYKO4V50",
+      apiKey: "AIzaSyAFvUfPSIxY7Zz3ZwnqEReRTjVBkkH05fs",
   authDomain: "hybridguardai.firebaseapp.com",
   projectId: "hybridguardai",
       storageBucket: "hybridguardai.firebasestorage.app",
