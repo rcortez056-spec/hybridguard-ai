@@ -5,7 +5,7 @@ const firebaseConfig = {
       apiKey: "AIzaSyAVG6YBzldL_99cenKVa0yRbdPQYKO4V50",
   authDomain: "hybridguardai.firebaseapp.com",
   projectId: "hybridguardai",
-  "hybridguardai.firebasestorage.app",
+      storageBucket: "hybridguardai.firebasestorage.app",
   messagingSenderId: "973062373600",
   appId: "1:973062373600:web:24c7ff5002f42a54361085",
   measurementId: "G-54Z86NZYN4"
