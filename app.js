@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAI, getGenerativeModel, GoogleAIBackend, InferenceMode } from "firebase/ai";
-
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 const firebaseConfig = {
       apiKey: "AIzaSyAFvUfPSIxY7Zz3ZwnqEReRTjVBkkH05fs",
   authDomain: "hybridguardai.firebaseapp.com",
@@ -12,7 +12,11 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
-
+self.FIREBASE_APPCHECK_DEBUG_TOKEN = "3619C34C-597F-466E-9409-12999872A4A2";
+const appCheck = initializeAppCheck(firebaseApp, {
+  provider: new ReCaptchaV3Provider("placeholder"),
+  isTokenAutoRefreshEnabled: true
+});
 // Firebase AI Logic. PREFER_ON_DEVICE uses Gemini Nano when the browser has it,
 // and falls back to a cloud Gemini model when it does not.
 const ai = getAI(firebaseApp, { backend: new GoogleAIBackend() });
