@@ -40,8 +40,20 @@ TEXT:
 async function scanText(text) {
   const result = await model.generateContent(PROMPT + text);
   const source = result.response.inferenceSource; // "ON_DEVICE" or "IN_CLOUD"
-  const raw = result.response.text().replace(/```json|```/g, "").trim();
-  return { source, findings: JSON.parse(raw).findings };
+  return { source, findings: parseFindings(result.response.text()) };
+}
+
+// Small on-device models sometimes wrap the JSON in prose or code fences.
+// Pull out the first {...} block instead of trusting the whole reply.
+function parseFindings(text) {
+  const cleaned = text.replace(/```(?:json)?/g, "");
+  const start = cleaned.indexOf("{");
+  const end = cleaned.lastIndexOf("}");
+  if (start === -1 || end <= start) {
+    throw new Error("Model did not return JSON. Try scanning again.");
+  }
+  const parsed = JSON.parse(cleaned.slice(start, end + 1));
+  return Array.isArray(parsed.findings) ? parsed.findings : [];
 }
 
 statusEl.textContent = "Connected to Firebase AI Logic.";

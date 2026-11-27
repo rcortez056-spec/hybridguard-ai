@@ -17,7 +17,24 @@ To ensure zero-trust data privacy and sub-second execution, HybridGuard AI utili
 * **License:** MIT
 
 ## Getting Started
-1. Clone the repository:
+1. Clone and install:
    ```bash
    git clone https://github.com/rcortez056-spec/hybridguard-ai.git
-  npx -y firebase-tools@latest init ailogic 
+   cd hybridguard-ai
+   npm install
+   ```
+2. Run locally:
+   ```bash
+   npm run dev
+   ```
+3. Build for production:
+   ```bash
+   npm run build   # outputs to dist/
+   ```
+
+## Deployment
+Deployed on **Vercel** (config in `vercel.json`). Import the repo in Vercel and it builds with Vite automatically. The app uses bare `firebase/*` imports, so it must be built first; serving the raw files (e.g. plain GitHub Pages) will not work.
+
+## Security Notes
+* **The Firebase `apiKey` in `app.js` is not a secret.** Firebase web API keys are public identifiers by design. Access is protected by **App Check (reCAPTCHA v3)** and API key HTTP-referrer restrictions, not by hiding the key. HybridGuard may flag it if you scan this repo's own source, which is expected.
+* App Check debug tokens are never committed to production code.
