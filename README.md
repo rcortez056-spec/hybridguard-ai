@@ -2,6 +2,8 @@
 
 > An offline-first, client-side security audit utility built for the #BuildHybridAI hackathon.
 
+> **Status: Parked.** Architecture and security hardening are complete (App Check with reCAPTCHA v3, domain-restricted reCAPTCHA key, debug tokens removed, old API key retired). Live scans are currently blocked by an unresolved App Check token issue (`401 Firebase App Check token is invalid`). See [PR #1](https://github.com/rcortez056-spec/hybridguard-ai/pull/1) for details and the next diagnostic step.
+
 ## Overview
 HybridGuard AI is a lightweight web application designed to scan text, draft technical articles, and configuration files for exposed secrets (such as API keys, database URIs, and authorization tokens) before they are published.
 
